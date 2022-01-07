@@ -82,9 +82,22 @@ VALUES
   (5, null),
   (6, null);
 
-  SELECT pm.planet_id, pm.moon_id, p.id
+  -- SELECT pm.planet_id, pm.moon_id, p.id
+  -- FROM planet_moons pm
+  -- RIGHT JOIN planets p
+  -- ON pm.id = p.id;
+
+  SELECT p.name, m.name
   FROM planet_moons pm
-  RIGHT JOIN planets p
-  ON pm.id = p.id;
+  JOIN planets p 
+  ON pm.planet_id = p.id
+  JOIN moons AS m
+  ON pm.moon_id = m.id;
+  
+-- SELECT planets.name, planets.id
+--   FROM planet_moons, planets
+--   WHERE planet_moons.id = planets.id 
+--   Group By planets.name;
+  
 
   
